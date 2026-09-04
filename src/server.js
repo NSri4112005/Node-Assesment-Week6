@@ -1,9 +1,10 @@
 const http = require("http");
 const url = require("url");
+const employeeService = require("./services/employeeService");
 
 const PORT = 3000;
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
     const parsedUrl = url.parse(req.url, true);
 
     const pathname = parsedUrl.pathname;
@@ -15,6 +16,7 @@ const server = http.createServer((req, res) => {
 
     res.setHeader("Content-Type", "application/json");
 
+    // GET /
     if (req.method === "GET" && pathname === "/") {
         res.writeHead(200);
 
@@ -28,20 +30,36 @@ const server = http.createServer((req, res) => {
         return;
     }
 
+    // GET /api/employees
     if (req.method === "GET" && pathname === "/api/employees") {
-        res.writeHead(200);
+        try {
+            const employees = await employeeService.getEmployees();
 
-        res.end(
-            JSON.stringify({
-                success: true,
-                message: "Employee API",
-                query: query
-            })
-        );
+            res.writeHead(200);
+
+            res.end(
+                JSON.stringify({
+                    success: true,
+                    data: employees
+                })
+            );
+        } catch (error) {
+            console.error(error);
+
+            res.writeHead(500);
+
+            res.end(
+                JSON.stringify({
+                    success: false,
+                    message: "Failed to read employee data"
+                })
+            );
+        }
 
         return;
     }
 
+    // Unknown route
     res.writeHead(404);
 
     res.end(

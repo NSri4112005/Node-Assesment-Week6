@@ -3,11 +3,13 @@ const fs = require("fs").promises;
 const path = require("path");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
+const JWT_SECRET = process.env.JWT_SECRET;
+
 const usersFile = path.join(
     __dirname,
     "../data/users.json"
 );
-
 // Get all users
 async function getUsers() {
     const data = await fs.readFile(usersFile, "utf-8");

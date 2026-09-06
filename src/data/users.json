@@ -10,5 +10,11 @@
     "name": "Arun",
     "email": "arun@gmail.com",
     "password": "$2b$10$CfAhC92g3dLZcmeB6VZlgOaCnSf9fhQuWSvi6PU1gwXNDC21OZ9iy"
+  },
+  {
+    "id": 3,
+    "name": "Test User",
+    "email": "testuser@gmail.com",
+    "password": "$2b$10$J7cDjuhkqUl8p3k602fizeajktXwX3Rv.R6dILqAQIO67Us8KZkBe"
   }
 ]

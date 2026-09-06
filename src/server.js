@@ -1,12 +1,13 @@
 
-require("dotenv").config();const http = require("http");
+require("dotenv").config();
+const http = require("http");
 const url = require("url");
 const employeeService = require("./services/employeeService");
 const parseRequestBody = require("./utils/requestBody");
 const validateEmployee = require("./utils/validation");
 const authService = require("./services/authService");
 const authenticateToken = require("./utils/authMiddleware");
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const server = http.createServer(async (req, res) => {
     const parsedUrl = url.parse(req.url, true);

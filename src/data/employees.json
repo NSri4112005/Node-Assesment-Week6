@@ -4,8 +4,8 @@
     "name": "Rahul",
     "email": "rahul@example.com",
     "department": "Development",
-    "role": "Software Engineer",
-    "salary": 30000
+    "role": "Senior Software Engineer",
+    "salary": 40000
   },
   {
     "id": 2,
@@ -14,5 +14,26 @@
     "department": "HR",
     "role": "HR Executive",
     "salary": 25000
+  },
+  {
+    "name": "Arun",
+    "email": "arun@example.com",
+    "department": "Development",
+    "role": "Backend Developer",
+    "salary": 35000
+  },
+  {
+    "name": "Test",
+    "email": "test@example.com",
+    "department": "Development",
+    "salary": 30000
+  },
+  {
+    "id": 10,
+    "name": "Kumar",
+    "email": "kumar@example.com",
+    "department": "Development",
+    "role": "Software Engineer",
+    "salary": 40000
   }
 ]
